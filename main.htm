@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>LucidIoT</title>
+
+		<style type="text/css">
+			* { 
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			}
+
+			.clr {
+			clear:both;
+			}
+
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				background-color:#F4F4F4;
+				color:#555555;
+				margin:0;
+				min-width: 800px;
+				}
+
+
+			.button {
+				background-color : gray;
+				border : none;
+				margin : 5px 5px;
+				padding : 10px 10px;
+				text-align : center;
+				text-decoration : none;
+				display: block;
+				font-size : 16px;
+				border : 2px solid black;
+				border-radius : 10px;
+			}
+
+			.button:hover {
+				background-color: #ccc
+			}
+
+			.container {
+				width: 100%;
+			}
+
+			.table {
+				display: table;
+				border-collapse: collapse;
+			}
+
+			.tr {
+				display: table-row;
+			}
+
+			.td {
+				display: table-cell;
+			}
+
+			form {
+				display: table;
+			}
+
+			p {
+				display: table-row;
+			}
+
+			label {
+				display: table-cell;
+				padding-right: 20px;
+				padding-top: 10px;
+			}
+
+			input {
+				display: table-cell;
+			}
+
+			table {
+				table-layout: fixed;
+				width: 100%;
+			}
+
+			th, td {
+				text-align: center;
+			}
+
+			table, th, td {
+				border: 2px solid black;
+				border-collapse: collapse;
+				padding: 5px;
+			}
+
+			/* Style the header */
+			header {
+				background-color: #666;
+				padding: 30px;
+				text-align: center;
+				font-size: 35px;
+				color: white;
+			}
+
+			p {
+			display: table-row;
+			}
+
+			label {
+				display: table-cell;
+				padding-right: 20px;
+				padding-top: 10px;
+			}
+
+			input {
+				display: table-cell;
+			}
+
+			nav {
+				float: left;
+				width: 250px;
+				background: #ccc;
+				padding: 10px;
+			}
+
+			/* Style the list inside the menu */
+			nav ul {
+				list-style-type: none;
+				padding: 0;
+			}
+
+			nav li {
+				margin-bottom: 20px;
+				padding: 10px;
+				margin: 5px;
+				border-radius: 10px;
+				border: black solid;
+				text-align: center;
+			}
+
+			nav li:hover {
+				background-color: white
+			}
+
+			.top-item {
+				border-bottom: black solid;
+			}
+
+			/* Clear floats after the columns */
+			section:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
+			/* Style the footer */
+			footer {
+				background-color: #777;
+				padding: 10px;
+				text-align: left;
+				color: white;
+			}
+				
+			.footerLeft {
+				width: 250px;
+				background: #ccc;
+
+			}
+
+			.main-icon {
+				grid-area: 1 / 1 / 1 / 1;
+				background-color: #ccc;
+				text-align: center;
+				padding: 20px;
+			}
+			.main-header {
+				font-size: 24px;
+				justify-self: center;
+				align-self: center;
+				grid-area: 1 / 2 / 1 / 2;
+			}
+
+			.main-nav {
+				grid-column: 1 / span 1;
+				grid-row: 2 / span 1;
+			}
+
+			.content {
+				grid-column: 2 / span 1;
+				grid-row : 2 / span 1;
+			}
+
+			.container-main {
+				display: grid;
+				grid-template-columns: 250px auto;
+				grid-template-rows: 100px auto;
+			}
+
+			@media only screen and (max-width: 768px) {
+
+			}
+
+			.container-box {
+			margin: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			/*justify-content: space-around;*/
+			border: solid;
+			}
+
+			.box-topic {
+			flex-basis: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			}
+
+			.box-1 {
+			padding: 10px;
+			flex-basis: 50%;
+			flex-wrap: wrap;
+			border-style: solid;
+			}
+
+			.box-12 {
+			padding: 10px;
+			flex-basis: 50%;
+			flex-wrap: wrap;
+			border-style: solid;
+			}
+
+			.box-13 {
+			padding: 10px;
+			flex-basis: 33%;
+			flex-wrap: wrap;
+			border-style: solid;
+			}
+
+			.box-14 {
+			padding: 10px;
+			flex-basis: 25%;
+			flex-wrap: wrap;
+			border-style: solid;
+			}
+
+			.box-16 {
+			padding: 10px;
+			flex-basis: 16%;
+			flex-wrap: wrap;
+			border-style: solid;
+			}
+
+			.box-title {
+				padding: 10px;
+				margin: 10px;
+				flex-basis: 100%;
+				flex-wrap: wrap;
+				border-style: solid;
+			}
+
+			.box-a {
+				padding: 10px;
+				margin: 10px;
+				flex-basis: 40%;
+				flex-wrap: wrap;
+				border-style: solid;
+			}
+
+			.box-b {
+				padding: 10px;
+				margin: 10px;
+				flex-basis: 40%;
+				flex-wrap: wrap;
+				border-style: solid;
+			}
+
+			.box-full {
+			padding: 10px;
+			flex-basis: 100%;
+			flex-wrap: wrap;
+			border-style: solid;
+
+			}
+
+			.box-full-sub {
+			flex-basis: 100%;
+			padding: 0;
+			margin: 0;
+			border-top: solid;
+			padding-top: 10px;
+			}
+
+			.box-2 {
+			flex-basis: 50%;
+			flex-wrap: wrap;
+			padding: 0px;
+			border-style: dashed;
+			}
+
+			.box-5050 {
+				flex-basis: 40%;
+				padding: 0px;
+				margin: 10px;
+				border-style: solid;
+				border-color: black;
+			}
+
+			.digState {
+				width : 40px;
+				height : 40px;
+				background: gray;
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+		</style>
+	</head>
+
+	<script>
+
+		const injectHead = (function(i,n,j,e,c,t,s){t=n.createElement(j),s=n.getElementsByTagName(j)[0];t.appendChild(n.createTextNode(e.text));t.onload=c(e);s?s.parentNode.insertBefore(t,s):n.head.appendChild(t)});
+
+		var selectedSlot;
+		var chkLoginTimer;
+		var acc;
+
+		var pgNet, pgSysInfo, pgClk, pgHttp, pgMqtt, pgMb, pgFtp, pgSmtp, pgJson, pgFrm, pgLog, pgAcc, pgIoCfg, pgIoVal;
+		var jsNet, jsSysInfo, jsClk, jsHttp, jsMqtt, jsMb, jsFtp, jsJson, jsFrm, jsLog, jsAcc, jsIoCfg, jsIoVal;
+		
+		const cfgDI = 0,
+    		cfgDO = 1,
+    		cfgAI = 2,
+    		cfgAO = 3,
+    		cfgRI = 4;
+
+		const vtDI1 = 0,
+			vtVOS4 = 0x1D,
+			vtCUS4 = 0x23,
+			vtTMS4 = 0x41,
+			vtRMU4 = 0x51;
+
+		const accAdmin = 0x01,
+			accFtpRw = 0x10,
+			accIo = 0x40,
+			accIoCfg = 0x80,
+			accEn = 0x8000;
+		
+		var cDI4 = "0",
+			cDI8 = "16",
+			cDO4 = "4096",
+			cDO8 = "4112",
+			cAI4 = "256",
+			cAO4 = "4352",
+			cRI4 = "2560",
+			cRI8 = "2576";
+
+		var tV = 0,
+			tC = 1;
+
+
+		var fmt = {
+			0 : "Auto",
+			1 : "Digital On / Off",
+			2 : "Digital 1 / 0",
+			3 : "Digital true / false",
+			10 : "Numeric",
+			30 : "Voltage (µV) Integer",
+			31 : "Voltage (V) Decimal",
+			32 : "Voltage (V) Decimal Prec 0",
+			33 : "Voltage (V) Decimal Prec 1",
+			34 : "Voltage (V) Decimal Prec 2",
+			35 : "Voltage (V) Decimal Prec 3",
+			40 : "Current (µA) Integer",
+			41 : "Current (mA) Decimal",
+			42 : "Current (mA) Decimal Prec 0",
+			43 : "Current (mA) Decimal Prec 1",
+			44 : "Current (mA) Decimal Prec 2",
+			45 : "Current (mA) Decimal Prec 3"
+		};
+
+		function fmtGetIdByIdx(idx) {
+			var o = Object.keys(fmt);
+			return o[idx];
+		}
+
+		function fmtGetIdxById(id) {
+			var o = Object.keys(fmt);
+			for (i = 0; i < o.length; i++) {
+				if (o[i] == id)
+					return i;
+			}
+			return 0;
+		}
+
+		function fmtStrGet() {
+			let s = "";
+			for(var k in fmt) {
+				s += '<option>' + fmt[k] + '</option>';
+			}
+			return s;
+		}
+
+		var vId = {
+			0 : "Ch 0",
+			1 : "Ch 1",
+			2 : "Ch 2",
+			3 : "Ch 3",
+			4 : "Ch 4",
+			5 : "Ch 5",
+			6 : "Ch 6",
+			7 : "Ch 7",
+			8 : "Ch 8",
+			9 : "Ch 9",
+			10 : "Ch 10",
+			11 : "Ch 11",
+			12 : "Ch 12",
+			13 : "Ch 13",
+			14 : "Ch 14",
+			15 : "Ch 15",
+			0x1000 : "System Time"
+		};
+
+
+		function vIdGetIdByIdx(idx) {
+			var o = Object.keys(vId);
+			return o[idx];
+		}
+
+		function vIdGetIdxById(id) {
+			var o = Object.keys(vId);
+			for (i = 0; i < o.length; i++) {
+				if (o[i] == id)
+					return i;
+			}
+			return 0;
+		}
+
+		function vIdStrGet() {
+			let s = "";
+			for(var k in vId) {
+				s += '<option>' + vId[k] + '</option>';
+			}
+			return s;
+		}
+
+		function vIdStrGet() {
+			let s = "";
+			for(var k in vId) {
+				s += '<option>' + vId[k] + '</option>';
+			}
+			return s;
+		}
+
+		var doMode = {
+			0 : "Inactive",
+			1 : "Reflect",
+			8 : "OnOff",
+			10 : "DutyCycle"
+		};
+
+		function doModeGetIdByIdx(idx) {
+			return Object.keys(doMode)[idx];
+		}
+
+		function doModeGetIdxById(id) {
+			var o = Object.keys(doMode);
+			for (var i = 0; i < o.length; i++) {
+				if (o[i] == id)
+					return i;
+			}
+			return 0;
+		}
+		
+
+		function doModeStrGet() {
+			let s = "";
+			for (var k in doMode) {
+				s += '<option>' + doMode[k] + '</option>';
+			}
+			return s;
+		}
+
+		var diMode = {
+			0 : "Inactive",
+			1 : "Reflect",
+			0x10 : "Rising Edge",
+			0x11 : "Falling Edge",
+			0x20 : "Counting"
+		};
+
+		function diModeGetIdByIdx(idx) {
+			return Object.keys(diMode)[idx];
+		}
+
+		function diModeGetIdxById() {
+			var o = Object.keys(diMode);
+			for (var i = 0; i < o.length; i++) {
+				if (o[i] == id)
+					return i;
+			}
+			return 0;
+		}
+
+		function diModeStrGet() {
+			let s = "";
+			for (var k in diMode) {
+				s += '<option>' + diMode[k] + '</option>';
+			}
+			return s;
+		}
+
+		var stdMode = {
+			0 : "Inactive",
+			1 : "Standard"
+		};
+
+		function stdModeGetIdByIdx(idx) {
+			return Object.keys(stdMode)[idx];
+		}
+
+		function stdModeGetIdxById(id) {
+			var o = Object.keys(stdMode);
+			for (var i = 0; i < o.length; i++) {
+				if (o[i] == id)
+					return i;
+			}
+			return 0;
+		}
+
+		function stdModeStrGet() {
+			let s = "";
+			for (var k in stdMode) {
+				s += '<option>' + stdMode[k] + '</option>';
+			}
+			return s;
+		}
+
+		var tz = [
+			{id: 0, z: "CET/CEST"},
+			{id: 1, z: "CET"}];
+		
+		function tzOptAdd(eId) {
+			let i;
+			let c;
+			for (i = 0; i < tz.length; i++) {
+				c = document.createElement("option");
+				c.text = tz[i].z;
+				document.getElementById(eId).options.add(c);
+			}
+		}
+
+		function tzIdGet(idx) {
+			return tz[idx].id;
+		}
+
+		function tzIdxGet(id) {
+			let i;
+			for (i = 0; i < tz.length; i++) {
+				if (id == tz[i].id)
+					return i;
+				}
+			return 0;
+		}
+
+		async function fetchHtmlAsText(url) {
+			return await (await fetch(url)).text();
+		}
+
+		function eGetById(id) {
+     		return document.getElementById(id);
+    }
+
+		function hS(id, h) {
+			eGetById(id).innerHTML = h;
+		}
+
+		function vS(id, v) {
+			eGetById(id).value = v;
+		}
+
+		function vG(id){
+			return eGetById(id).value;
+		}
+
+		function cS(id, v) {
+			eGetById(id).checked = v;
+		}
+
+		function cG(id) {
+			return eGetById(id).checked;
+		}
+
+		function tcS(id, c) {
+			eGetById(id).style.color = c;
+		}
+
+		function siS(id, v) {
+			eGetById(id).selectedIndex = v;
+		}
+
+		function siG(id) {
+			return eGetById(id).selectedIndex;
+		}
+
+		function dS(id, v) {
+			eGetById(id).style.display = v;
+		}
+
+		function valC(id) {
+			return eGetById(id).checkValidity();
+		}
+
+		function sIdG() {
+			let sId = document.cookie.split('=');
+			return parseInt(sId[1]);
+		}
+
+		function pI(v) {
+			return parseInt(v);
+		}
+
+		function resClr(id)	{
+			tcS(id, "initial")
+			hS(id, "");
+		}
+
+		function resErr(id, v) {
+			tcS(id, "red");
+			hS(id, "ERROR: " + v);
+		}
+
+		function resExcp(id, v) {
+			tcS(id, "red");
+			hS(id, "EXCEPT: " +v);
+		}
+
+		function resOk(id, v) {
+			tcS(id, "green");
+			hS(id, v);
+		}
+
+		function mStat(rq, rs) {
+			return (rq.Cmd + ' Status : ' + rs.Status);
+		}
+
+		function mExcept(rq, e) {
+			return (rq.Cmd + ' Exception : ' + e);
+		}
+
+		const fetchInject = function (inputs, promise) {
+  			//if (!arguments.length) return Promise.reject(new ReferenceError("Failed to execute 'fetchInject': 1 argument required but only 0 present."))
+  			//if (arguments[0] && arguments[0].constructor !== Array) return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 1 must be of type 'Array'."))
+  			//if (arguments[1] && arguments[1].constructor !== Promise) return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 2 must be of type 'Promise'."))
+
+  			const resources = []
+  			const deferreds = promise ? [].concat(promise) : []
+  			const thenables = []
+
+			inputs.forEach(input => deferreds.push(window.fetch(input).then(res => {
+				return [res.clone().text(), res.blob()]
+			}).then(promises => {
+				return Promise.all(promises).then(resolved => {
+					resources.push({ text: resolved[0], blob: resolved[1] })
+				})
+			})
+			))
+
+			return Promise.all(deferreds).then(() => {
+				resources.forEach(resource => {
+				thenables.push({
+					then: resolve => {
+					resource.blob.type.includes('text/css')
+						? injectHead(window, document, 'style', resource, resolve)
+						: injectHead(window, document, 'script', resource, resolve)
+					}
+			})
+		})
+		return Promise.all(thenables)
+  		})
+		}
+ 
+		function sReq(j) {
+			var xhttp = new XMLHttpRequest();
+			var url = '/cmd';
+			var params ='value=';
+			var request = JSON.stringify(j);
+
+			xhttp.open("POST", url, true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			params += request;
+			xhttp.send(params);
+			return xhttp;
+		}
+
+		async function r(req) {
+			return new Promise(function(resolve, reject) {
+				let xhttp = sReq(req);
+				xhttp.onreadystatechange = function () {
+					if (this.readyState == 4) {
+						if (this.status == 200)	{
+							try {
+								let rsp = JSON.parse(this.responseText);
+								resolve(rsp);
+							} catch (e) {
+								console.log(this.responseText);
+								reject("EXCEPT: " + e);
+							}
+						} else {
+							reject("HTTP Status: " + this.status);
+						}
+					}
+				}
+			});
+		}
+
+		async function rqp(rq, fupd) {
+			return new Promise(async(res, rej) => {
+				await r(rq).then((j) => {
+					if (j.Status == "OK") {
+						if (fupd)
+							fupd(j);
+						res();
+					} else {
+						rej(mStat(rq, j));
+					}
+				}).catch((m) => {
+					rej(mExcept(rq, m));
+				})
+			});
+		}
+
+		function ofstGet(slot) {
+			let c;
+			if (slot == 1)
+				c = sessionStorage.getItem("c0");
+			else
+				return 0;
+
+			if ((c == "0")	||
+					(c == "4096") ||
+					(c == "256") ||
+					(c == "4352") ||
+					(c == "2560"))
+				return 4;
+			else if ((c == "16") ||
+					(c == "4112") ||
+					(c == "2576"))
+				return 8;
+			return 0;
+		}
+
+		function classGet(slot)
+		{
+			if (slot == 1)
+				return sessionStorage.getItem("c1");
+			else
+				return sessionStorage.getItem("c0");
+		}
+
+		function sysIdStore(j) {
+			if (j.Slots.length) {
+				sessionStorage.setItem("c0", j.Slots[0].Class);
+				sessionStorage.setItem("t0", j.Slots[0].Type);
+				sessionStorage.setItem("cn0", j.Slots[0].ClassName);
+				sessionStorage.setItem("tn0", j.Slots[0].TypeName);
+			}
+			if (j.Slots.length > 1) {
+				sessionStorage.setItem("c1", j.Slots[1].Class);
+				sessionStorage.setItem("t1", j.Slots[1].Type);
+				sessionStorage.setItem("cn1", j.Slots[1].ClassName);
+				sessionStorage.setItem("tn1", j.Slots[1].TypeName);
+			}
+		}
+
+		async function sysIdGet(upd) {
+			let rq = {Cmd:"SysIdGet",
+						SessionId:sIdG()};
+			
+			return new Promise(async(res, rej) => {
+				await r(rq).then((j) => {
+				if (j.Status == "OK") {
+					sysIdStore(j);
+					if (upd)
+						sysIdUpd(j);
+					res();
+				} else {
+					rej(mStat(rq, j));
+				}
+				}).catch((m) => {
+					rej(mExcept(rq, m));
+				});
+			});
+		}
+
+		// SMTP
+
+		function smtpCfgUpd(j) {
+
+		}
+
+		function smtpCfgSet() {
+
+		}
+
+		async function smtpCfgGet() {
+
+		}
+
+
+
+		// ACCOUNT
+		function accVisibleSet(acc) {
+			dS("btSysInfo", "block");
+
+			if (sessionStorage.getItem("Mode") != 0) {
+				dS("btSec", "block");
+				return;
+			}
+
+			if ((acc & accAdmin) || (acc & accIoCfg)) {
+				if (sessionStorage.getItem("c0") != null) {
+					dS("btIoCfg0", "block");
+					dS("btIoVal0", "block");
+				}
+
+				if (sessionStorage.getItem("c1") != null) {
+					dS("btIoCfg1", "block");
+					dS("btIoVal1", "block");
+				}
+			}
+
+			if ((acc & accAdmin) || (acc & accIo)) {
+				if (sessionStorage.getItem("c0") != null) {
+					dS("btIoVal0", "block");
+				}
+	
+				if (sessionStorage.getItem("c1") != null) {
+					dS("btIoVal1", "block");
+				}
+			}
+
+			if (acc & accAdmin) {
+				dS("btNet", "block");
+				dS("btClk", "block");
+				dS("btHttp", "block");
+				dS("btMqtt", "block");
+				dS("btMb", "block");
+				dS("btFtp", "block");
+				//dS("btSmtp", "block");
+				dS("btJson", "block");
+				dS("btFrm", "block");
+				dS("btLog", "block");
+				dS("btAcc", "block");
+			}
+
+			if (sessionStorage.getItem("ld") == null) {
+				if (acc & accAdmin)
+					sessionStorage.setItem("ld", "sysInfo");
+				else
+					sessionStorage.setItem("ld", "ioVal0");
+			}
+		}
+
+		async function accGetByUser(name) {
+			let rq = {Cmd:"AccGet", SessionId:sIdG(), Name:name};
+
+			return new Promise(async (res, rej) => {
+				await r(rq).then((j) => {
+					if (j.Status == "OK")
+						res(j.Access);
+					else
+						rej(mStat(rq, j));
+				}).catch((m) => {
+					rej(mExcept(rq, m));
+				})
+			});
+		}
+
+		async function accLoginTimerFnc() {
+			let rq = {Cmd:"AccLogCheck",
+				SessionId:sIdG(),
+				Heartbeat:0};
+				
+			await r(rq).then((j) => {
+				if (j.Status != "OK") {
+					console.log(mStat(rq, j));
+					window.location.href = 'logout.htm';
+				}
+			}).catch((m) => {
+				console.log(mExcept(rq, m));
+				window.location.href = 'logout.htm';
+			})
+		}
+
+		function accLoginCheck()
+		{
+			accLoginTimerFnc();
+			chkLoginTimer = setInterval(accLoginTimerFnc, 1000);
+
+			var e = document.cookie.split('=');
+			if (e.length == 2) {
+				hS("sessionId", e[1]);
+			} else {
+				hS("sessionId", "COOKIE ERROR");
+			}
+		}
+
+		async function accLogout()
+		{
+			let rq = {Cmd:"AccLogout",
+				SessionId:sIdG()};
+			await r(rq).then((j) => {
+				if (j.Status == "OK")
+					window.location.href = 'logout.htm';
+				else {
+					console.log(mStat(rq, j));
+					window.location.href = 'logout.htm';
+				}
+			}).catch((m) => {
+				console.log(mExcept(rq, m));
+				window.location.href = 'logout.htm';
+			})
+		}
+
+
+		async function netLd(){
+			if (!pgNet)
+				pgNet = await fetchHtmlAsText("net.htm")
+			hS("content", pgNet);
+
+			if (!jsNet) {
+				await fetchInject(["net.js"])
+				jsNet = 1;
+			}
+
+			sessionStorage.setItem("ld", "net");
+
+			await netInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function sysInfoLd(){
+			if (!pgSysInfo)
+				pgSysInfo = await fetchHtmlAsText("sysinfo.htm");
+			hS("content", pgSysInfo);
+
+			if (!jsSysInfo) {
+				await fetchInject(["sysinfo.js"])
+				jsSysInfo = 1;
+			}
+			sessionStorage.setItem("ld", "sysInfo");
+			
+			await sysInfoInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function clkLd(){
+
+			if (!pgClk)
+				pgClk = await fetchHtmlAsText("clk.htm")
+			hS("content", pgClk);
+
+			if (!jsClk) {
+				await fetchInject(["clk.js"]);
+				jsClk = 1;
+			}
+			sessionStorage.setItem("ld", "clk");
+			tzOptAdd("clkTz");
+			
+			await clkInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function httpLd(){
+
+			if (!pgHttp)
+				pgHttp = await fetchHtmlAsText("http.htm")
+			hS("content", pgHttp);
+
+			if (!jsHttp) {
+				await fetchInject(["http.js"]);
+				jsHttp = 1;
+			}
+			sessionStorage.setItem("ld", "http");
+
+			await httpInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+			await httpCfgGet();
+		}
+
+		async function mqttLd(){
+			if (!pgMqtt)
+				pgMqtt = await fetchHtmlAsText("mqtt.htm")
+			hS("content", pgMqtt);
+
+			if (!jsMqtt) {
+				await fetchInject(["mqtt.js"]);
+				jsMqtt = 1;
+			}
+			sessionStorage.setItem("ld", "mqtt");
+			
+			await mqttInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function ftpLd(){
+			if (!pgFtp)
+				pgFtp = await fetchHtmlAsText("ftp.htm")
+			hS("content", pgFtp);
+
+			if (!jsFtp) {
+				await fetchInject(["ftp.js"]);
+				jsFtp = 1;
+			}
+			sessionStorage.setItem("ld", "ftp");
+
+			await ftpInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function mbLd(){
+			if (!pgMb)
+				pgMb = await fetchHtmlAsText("mb.htm");
+
+			if (!jsMb) {
+				await fetchInject(["mb.js"]);
+				jsMb = 1;
+			}
+
+			hS("content", pgMb);
+			sessionStorage.setItem("ld", "mb");
+
+			await mbInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function jsonLd(){
+			if (!pgJson)
+				pgJson = await fetchHtmlAsText("json.htm");
+
+			if (!jsJson) {
+				await fetchInject(["json.js"]);
+				jsJson = 1;
+			}
+
+			hS("content", pgJson);
+			sessionStorage.setItem("ld", "json");
+
+			await jsonInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function frmLd(){
+			if (!pgFrm)
+				pgFrm = await fetchHtmlAsText("frm.htm");
+
+			if (!jsFrm) {
+				await fetchInject(["frm.js"]);
+				jsFrm = 1;
+			}
+			hS("content", pgFrm);
+			sessionStorage.setItem("ld", "frm");
+
+			await frameInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function accLd() {
+			if (!pgAcc)
+				pgAcc = await fetchHtmlAsText("acc.htm");
+
+			if (!jsAcc) {
+				await fetchInject(["acc.js"]);
+				jsAcc = 1;
+			}
+			hS("content", pgAcc);
+			sessionStorage.setItem("ld", "acc");
+
+			await accInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+		
+
+		async function logLd(){
+
+			console.log("Test Log Enter");
+			if (!pgLog)
+				pgLog = await fetchHtmlAsText("log.htm");
+			hS("content", pgLog);
+
+			if (!jsLog) {
+				await fetchInject(["log.js"]);
+				jsLog = 1;
+			}
+			
+			sessionStorage.setItem("ld", "log");
+
+			await logInit().then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function ioLd(slot){
+			let c;
+			selectedSlot = slot;
+
+			if (!pgIoCfg)
+				pgIoCfg = await fetchHtmlAsText("io.htm");
+			hS("content", pgIoCfg);
+
+			if (!jsIoCfg) {
+				await fetchInject(["io.js"]);
+				jsIoCfg = 1;
+			}
+			sessionStorage.setItem("ld", "io" + slot);
+
+			if (slot == 1) {
+				c = sessionStorage.getItem("c1");
+			} else
+				c = sessionStorage.getItem("c0");
+
+			await ioCfgInit(slot, c).then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+
+		async function ioValLd(slot) {
+			let c;
+			selectedSlot = slot;
+
+			if (!pgIoVal)
+				pgIoVal = await fetchHtmlAsText("ioval.htm");
+			hS("content", pgIoVal);
+
+			if (!jsIoVal) {
+				await fetchInject(["ioval.js"]);
+				jsIoVal = 1;
+			}
+			sessionStorage.setItem("ld", "ioVal" + slot);
+			
+			if (slot == 1) {
+				c = sessionStorage.getItem("c1");
+			} else
+				c = sessionStorage.getItem("c0");
+
+			await ioValInit(slot, c).then(() => {
+			}).catch((m) => {
+				alert(m);
+			});
+		}
+	</script>
+
+	<body>
+
+		<div class="container-main">
+
+			<div class="main-icon">
+				<div class="logo">
+					<img src="
+						data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYcAAACNCAMAAABrLEaeAAAADFBMVEX///8zM/8rKikAAABNZMIQAAAABHRSTlP///8AQCqp9AAAAAlwSFlzAAAuIwAALiMBeKU/dgAABuJJREFUeJzt3OuWqygQBWDM8P6PbM8yKnKpKgrkllO1//ScjrQZvoCAGPufmZbdmM+8s68VO+/UX4ZdJb6Z53AyTDv9YpnmcDPs2jcdmeXwtAZlODLJwWfQS4SZ5RAwKISZ5BAyGIWY4xAz6CViigPEIL5FjHcAGYa/i9Uy3EEZwIx2UAY4gx0QBulXh9EOyoBlqIMyoBnpoAx4BjooA5FxDjiD+EmcGehAMCjEOAeKQVvEMAeaQSEGOeQYFGKIQ55BPMQIBw6D9A0DAxx4DEZ2k+jvwGYQDdHdAWDYDbbcLReit0MRg2CIzg6FDHIh+joUM4iF6OpQwSAVoqdDFYNQiI4OlQwyIfo5VDOIhOjm8IJBIkQvh0qGz/WqOIhODrUMYiH6OFQziG0RXRxeMDwQstLD4RXDDSGrOfRweMlwQghj6ODwasB65iPs4mA6ODSZRYtjaO6gs+i6NHbQWXRl2jq8vDYIhmjqkGfITA7kQrR0YDBkIQReor9p6MBhyE+XhTaJdg48Bg8C+fYlmRDNHBiX6D2A+EhdSgLTyoE1UkqmahCEyObQyoE5YN1d7V+1nULIZGjkwJ433BCutmMIoQxtHHwGc/7Apm8XxPOLEEIqQxOHgOEEwGfRyXDIhxDL0MKhiIGEkMvQwKGQgYAQzPDeoZgBhZDM8NoBZyBmaSCEaIa3DgRDIYRshpcOJIPX8SPDVy/CGd45ZBiejp8BITxvHLIMT8evEJlYcHCDLEknyTE8Hb9C0Pm2hz3pOVoxpNcKDZizX0ohOOEweEfrih4Re1ZPCMGrojIGXdEjYw0EwUkpg67oUbGmEqKcQVf0iFhX/2UQNQy6oofHmiqIOgZd0UNjDQiRAcFWWHktQhnSHOPWBCLXMkoXuoOyOn+DEs7jeBBvGLQ1wInmcRyIdwwaMNc6XwEEsUFGP+rVuddb2RDK0CVu3ZsJoQx98tx/YEHQDCVDob/zx1b9zt/kj3/q831u0X+yCpXEuw/EgMgwFJ9dc8e/H5eFUIZuCe6LZiCUoV8uh6Nj3zMQytAx9hnmfGgIZegZe7UE88lCKEPH2LsGdxzCYzDKwAk8tqXGvcH8AYHwj/83GObMWqiE8wcYwvVGV36eYcFE8wcYInzEVhk6JJ4/xBBu4eiBCFe9laFJwv2tKYRx63fRzFoZmibaZ5xAmHB+YdzvlKFp4v3eCQT4iK3rr5ShUZJ99x7EkWAlO7xGjGLILTdDi9jJwvOWvlxWhH53FQXDpM8/OIjjH9ENhWhn5JqtAVz8P36ZoQR+malR5DZDvmAa4DmU/RmmJvd1gp2RP8RwvYJUD1oELZE5U6YgEOh5IAcB3F7zrt5LMtB3wv6g2im/ecYpBp4KD/hc1k5slHRX7x9kKK6daqTiU8HPx0HXhjvB4t8/kD7NwRRC4M8povf808W/ZeIqJ64C90JSOWgRuqbxYnWyqAOx9WL5tpDWzZarHaA6s2XgYscvz3IlDQJ1oPbArApB7sXZwMqht+9sGQisonPl0uD9EgGxKMOVimkUWgSrUF49FzQI2OFjdgJibQY05R/S7F9sdy7Q4brtg0DszxFrpaKem9PUBnJwlQxC3BO5BSG+adkt9WhEcAAH77MOQOz3C8tC/GRSh3tnDNw1eds7fg5ivd0BTxKH8AtAY4jn2vCLEAsndgh37ZkIwr82SIbI78A/ryv8gWvkkDAEEOG1QTJE84QO0B7WB2KPWoJCtEvgADI4iINBITrFd0AYLggIQCoEt/evWteAN9bfXRN8bRgBMWoq1TT16xrI8w1n/KahLaJDnAP1mMnuHbEcBP+Tx3/ec3xuB/Jpn2CzMQzR/eFp9lC8+BY0WWRUn+iejyMYnuErCvE9gLyJNyAVF5Jlrj2nA+vZNwJiYsc0syLxdlR3P475CCIOUXrWrmnZMWH1yWtHhfen2U+CohAjAtdVUB/wLWjwUNYfr94OVfW9DgUP5LaHyL/jzVUve2sLtKvxPjR65f5ggxshGXuUwM98RV9py56Lntoi/M3CuV2N54+Nc2xQZAv+hcd1TNFg2C9XtI+s8PH0KRB+b0xWUNxtpwcndRMV6ba7LxNbxjC7RQAJKnLc0HXLN5mSP2cLGeZAEHWF9PesgxlFqDMX7xAkko5bs8++LQWR9jPE5xTbtYcPT+veVLZkmmTcyngEcQoEq7O/fgvXD7U7Bi6Sq0x0B2z5DCYet7KeBG0BUf5W0c2k5X+7oMhGH1Pyv0EdaysYFrxY/3xsDcPx8v0tNArRJLaKwb9DFK26aqpi6xi8eBCa6njj1tova1CIBnnGrfXfmaEQ72NrGfyjFOJ1bB1DVOE6Wnob2+bbxRTiZf4HgjJ3YZntZoYAAAAASUVORK5CYII="
+						" width="200px"/>
+				</div>
+			</div>
+
+			<div class="main-header">
+				<h2>LucidIoT</h2>
+			</div>
+
+			<div class="main-nav">
+				<section>
+					<nav>
+						<ul>
+							<li id="btSysInfo" style="display:none">System Info</li>
+							<li id="btNet" style="display:none">Network</li>
+							<li id="btClk" style="display:none">Date & Time</li>
+							<li id="btHttp" style="display:none">HTTP Server</li>
+							<li id="btMqtt" style="display:none">MQTT Client</li>
+							<li id="btMb" style="display:none">Modbus/TCP Server</li>
+							<li id="btFtp" style="display:none">FTP Server</li>
+							<!-- <li id="btSmtp" style="display:none">SMTP</li> -->
+							<li id="btJson" style="display:none">JSON Interface</li>
+							<li id="btFrm" style="display:none">Frame Interface</li>
+							<li id="btLog" style="display:none">Logging</li> 
+							<li id="btAcc" style="display:none">User Accounts</li>
+							<li id="btSec" style="display:none">Security</li>
+							<li id="btIoCfg0" style="display:none">IO Slot 0 Config</li>
+							<li id="btIoVal0" style="display:none">IO Slot 0 Value</li>
+							<li id="btIoCfg1" style="display:none">IO Slot 1 Config</li>
+							<li id="btIoVal1" style="display:none">IO Slot 1 Value</li>
+							<li id="btLogout">Logout</li>
+						</ul>
+					</nav>
+					<div>
+						<p>Session ID</p>
+						<p id="sessionId">ID</p>
+					</div>
+				</section>
+			</div>
+		
+			<div id="content"></div>
+		</div> <!-- Main container-->
+	</body>
+
+	<script>
+		
+		function btnEvAdd(id, fnc) {
+			eGetById(id).addEventListener("click", fnc);
+		}
+
+		btnEvAdd("btNet", async () => {await netLd()});
+		btnEvAdd("btSysInfo", async () => {await sysInfoLd()});
+		btnEvAdd("btClk", clkLd);
+		btnEvAdd("btHttp", httpLd);
+		btnEvAdd("btMqtt", mqttLd);
+		btnEvAdd("btMb", mbLd);
+		btnEvAdd("btFtp", ftpLd);
+		//btnEvAdd("btSmtp", smtpLd);
+		btnEvAdd("btJson", jsonLd);
+		btnEvAdd("btFrm", frmLd);
+		btnEvAdd("btLog", logLd);
+		btnEvAdd("btAcc", accLd);
+		btnEvAdd("btIoCfg0", function() {ioLd(0);});
+		btnEvAdd("btIoVal0", function() {ioValLd(0);});
+		btnEvAdd("btIoCfg1", function() {ioLd(1);});
+		btnEvAdd("btIoVal1", function() {ioValLd(1);});
+		btnEvAdd("btLogout", accLogout);
+
+		window.onload = async function() {
+			let ld, tm;
+			
+			await sysIdGet(0).then(() => {
+			}).catch((m) =>{
+				tm = m;
+			})
+
+			if (tm) {
+				tm = null;
+				// Overwrite
+				//sessionStorage.setItem("user", "");
+				//sessionStorage.setItem("c0", cRI4);
+				sessionStorage.setItem("c1", cAO4);
+				//sessionStorage.setItem("c1", cRI8);
+				acc = 0xFFFF;
+			}
+
+			if (!tm) {
+				await accGetByUser(sessionStorage.getItem("user")).then((tacc) => {
+				acc = tacc;				
+				}).catch((m) => {
+					alert(m);
+				});
+			}
+			
+			accVisibleSet(acc);
+			
+			accLoginCheck();
+
+			ld = sessionStorage.getItem("ld");
+
+			if (ld == "net")
+				netLd();
+			else if (ld == "sysInfo")
+				sysInfoLd();
+			else if (ld == "clk")
+				clkLd();
+			else if (ld == "http")
+				httpLd();
+			else if (ld == "mqtt")
+				mqttLd();
+			else if (ld == "mb")
+				mbLd();
+			else if (ld == "ftp")
+				ftpLd();
+			else if (ld == "smtp")
+				smtpLd();
+			else if (ld == "json")
+				jsonLd();
+			else if (ld == "frm")
+				frmLd();
+			else if (ld == "log")
+				logLd();
+			else if (ld == "acc")
+				accLd();
+			else if (ld == "io0")
+				ioLd(0);
+			else if (ld == "io1")
+				ioLd(1);
+			else if (ld == "ioVal0")
+				ioValLd(0);
+			else if (ld == "ioVal1")
+				ioValLd(1);
+			else
+				sysInfoLd();
+		}
+		
+	</script>
+</http>
